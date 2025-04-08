@@ -1,0 +1,7 @@
+FROM postgres:17
+
+RUN apt-get update
+RUN apt -y install pgpool2 nano ssh expect
+
+RUN echo "postgres:testing_123" | chpasswd
+RUN echo "PubkeyAuthentication no" >> /etc/ssh/sshd_config
